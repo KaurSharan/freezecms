@@ -1,0 +1,35 @@
+<div class="row">
+			<div class="col-lg-6">
+					Enter Page Title:-
+				</div>
+				<div class="col-lg-6">
+					<%= select("banner", "page_id", @page.collect {|p| [ p.title, p.id ] }, { include_blank: true })%>
+					
+				</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-6">
+					Enter Banner Type:-
+				</div>
+				<div class="col-lg-6">
+					
+				      <select class="form-control" name="banner[banner_type]" id="banner[banner_type]">
+				        <option value=0>Select..</option>
+				        <option value="Business">Business</option>
+				        <option value="Reception">Reception</option>
+				        <option value="Marriage">Marriage</option>
+				        <option value="Personal">Personal</option>
+				        <option value="Other">Other</option>
+				      </select>
+				 
+					
+				</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-6">
+					Enter Detail:-
+				</div>
+				<div class="col-lg-6">
+					<%= f.text_field('detail',:class=>'form-control') %>
+				</div>
+		</div>

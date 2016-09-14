@@ -1,0 +1,39 @@
+
+		<div class="row">
+			<div class="col-lg-6">
+					Select Sub Menu:-
+				</div>
+				<div class="col-lg-6">
+					<%= select("page", "submenu_id", @submenu.collect {|s| [ s.name, s.id ] }, { include_blank: true })%>
+				</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-6">
+					Select Banner:-
+				</div>
+				<div class="col-lg-6">
+					<%= select("page", "banner_id", @banner.collect {|b| [ b.banner_type, b.id ] }, { include_blank: true }) %>
+				</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-6">
+					Enter Page Title:-
+				</div>
+				<div class="col-lg-6">
+					<%= f.text_field('title',:class=>'form-control') %>
+				</div>
+		</div>
+
+		<div class="row">
+			<div class="col-lg-6">
+					Enter Description:-
+				</div>
+				<div class="col-lg-12">
+					<%= f.cktext_area :description, :class => 'ckeditor' %>
+					<!-- <textarea name="page[description]" id="page[description]" rows="10" cols="80"> -->
+
+                </textarea>
+               
+				</div>
+		</div>
+		

@@ -1,0 +1,22 @@
+<table class="table table-hover table-bordered">
+    <thead>
+      <tr>
+        <th>S.no</th>
+        <th>Banner</th>
+        <th>Show</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @banner.each do |b| %>
+      <tr>
+          <td>1</td>
+        <td><%= b.banner_type %></td>
+        <td><%= link_to(image_tag("show.png", :border=>0),{:action=>'show',:id => b.id})%></td></td>
+        <td><%= link_to(image_tag("edit.gif", :border=>0),{:action => 'edit',:id => b.id})%></td></td>
+        <td><%= link_to(image_tag("delete.gif", :border=>0),{:action => 'delete',:id => b.id})%></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>

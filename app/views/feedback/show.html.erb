@@ -1,0 +1,19 @@
+<table class="table table-bordered">
+	<thead>
+			<tr>
+				<td>Id</td>
+				<td>Name</td>
+				<td>Email</td>
+				<td>Comment</td>
+			</tr>
+	</thead>
+			<tr class="danger">
+				<td><%= @feedback.id %></td>
+				<td><%= @feedback.name %></td>
+				<td><%= @feedback.email %></td>
+				<td><%= @feedback.comment %></td>
+			</tr>
+			<%= button_to('Back to view page', :action=>'feedback', :class => 'btn btn-primary')  %>
+				
+
+</table>

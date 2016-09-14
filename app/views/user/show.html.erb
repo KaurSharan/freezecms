@@ -1,0 +1,21 @@
+<table class="table table-bordered">
+	<thead>
+			<tr>
+				<td>Id</td>
+				<td>Email</td>
+				<td>Password</td>
+				<td>Is_admin</td>
+				<td>Is_active</td>
+			</tr>
+	</thead>
+			<tr class="danger">
+				<td><%= @us.id %></td>
+				<td><%= @us.email %></td>
+				<td><%= @us.password %></td>
+				<td><%= @us.is_admin %></td>
+				<td><%= @us.is_active %></td>
+			</tr>
+			<%= button_to('Back to view page', :action=>'view', :class => 'btn btn-primary')  %>
+				
+
+</table>

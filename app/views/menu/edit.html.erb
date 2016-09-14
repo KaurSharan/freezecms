@@ -1,0 +1,16 @@
+<%= form_for :menu , :url=>{:action=>'update'} do |f| %>
+<input type="hidden" value="<%= @menu.id %>" name="id">
+<div class="row">
+	<div class="col-lg-12">
+		
+		<%= render partial: "shared/errors", locals: {object: @object} %>
+
+		<%= render partial: "form", locals: {f: f} %>	
+		<div class="row">
+			<div class="col-lg-4 col-lg-offset-3">
+							<%= submit_tag('Save User',:class=>'btn btn-primary col-lg-offset-2') %>
+				</div>
+		</div>
+	</div>
+</div>
+<% end %>

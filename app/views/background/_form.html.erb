@@ -1,0 +1,19 @@
+<div class="row">
+			<div class="col-lg-6">
+					Enter Page Title:-
+				</div>
+				<div class="col-lg-6">
+					<%= select("background", "page_id", @page.collect {|p| [ p.title, p.id ] }, { include_blank: true })%>
+					
+				</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-6">
+					Select Photo:-
+				</div>
+				<div class="col-lg-6">
+				
+				 <%= f.file_field("photo") %>
+					
+				</div>
+		</div>

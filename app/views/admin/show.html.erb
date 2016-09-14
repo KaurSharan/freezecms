@@ -1,0 +1,21 @@
+<table class="table table-bordered">
+	<thead>
+			<tr>
+				<td>First Name</td>
+				<td>Last Name</td>
+				<td>Email</td>
+				<td>Profile Pic</td>
+				<td>Contact</td>
+			</tr>
+	</thead>
+			<tr class="danger">
+				<td><%= @profile.first_name %></td>
+				<td><%= @profile.last_name %></td>
+				<td><%= @profile.user.email %></td>
+				<td><%= @profile.profile_pic %></td>
+				<td><%= @profile.number %></td>
+			</tr>
+			<%= button_to('Edit User Profile', :controller=>'admin',:action=>'edit', :class => 'btn btn-primary')  %>
+				
+
+</table>

@@ -1,0 +1,17 @@
+<div class="row">
+			<div class="col-lg-6">
+					Enter User:-
+				</div>
+				<div class="col-lg-6">
+					<%= select("proname", "user_id", @user.collect {|u| [ u.email, u.id ] }, { include_blank: true })%>
+					
+				</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-6">
+					Enter Name Of Project:-
+				</div>
+				<div class="col-lg-6">
+					<%= f.text_field('name',:class=>'form-control') %>
+				</div>
+		</div>

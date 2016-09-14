@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title><%= @page_title || "Admin Panel" %></title>
+	<%= stylesheet_link_tag 'style',media: 'all' %>
+	<script type="text/javascript" src="/assets/jquery.js"></script>
+	<script type="text/javascript" src="/assets/ckeditor/ckeditor.js"></script>
+	<script type="text/javascript" src="/assets/ckeditor/adapters/jquery.js"></script>
+	<%= javascript_include_tag 'code' %>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://fortawesome.github.io/Font-Awesome/examples/">
+	<link rel="stylesheet" href="http://l-lin.github.io/font-awesome-animation/">
+	<script type="text/javascript"  src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	
+</head>
+<body>
+	<div class="main_wrapper">
+		<header class="main-header">
+        <div class="col-lg-2"style="color:#fff;"><h3>Admin <%= session[:first_name] %></h3></div>
+        <!-- Header Navbar: style can be found in header.less -->
+        <nav class="navbar navbar-static-top" role="navigation"style="padding-right:100px;">
+          <!-- Sidebar toggle button-->
+          
+          <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav"style="font-size:25px;">
+             <li class="dropdown messages-menu">
+				               
+						<%= link_to raw('<span class="fa fa-home">Home</span>'),{:controller=>'admin',:action => 'user'} %>
+                
+                  </li>
+              <!-- User Account: style can be found in dropdown.less -->
+              <li class="dropdown user user-menu">
+              	
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"style="height:56px;">
+                	<%= image_tag("/upload/"+@detail.profile_pic,:class=>'user-image',:alt=>'User Image') %>
+						
+                  <span class="hidden-xs"><%= session[:first_name] %></span>
+                  
+                </a>
+                <ul class="dropdown-menu"style="width:230px;padding-right: 25px;">
+                  <!-- User image -->
+                  <li class="user-header"style="background-color:#3c8dbc;">
+                  	<%= image_tag("/upload/"+@detail.profile_pic,:class=>'pic',:alt=>'User Image') %>
+                   
+                    <p>
+                      <%= session[:first_name] %> - Web Developer
+                      <small>Member since Nov. 2012</small>
+                    </p>
+                  </li>
+            
+                  <!-- Menu Footer-->
+                  <li class="user-footer">
+                    <div class="pull-left">
+                    	
+                      <a href="/admin/show" class="btn btn-info btn-flat">Profile</a>
+                    </div>
+                    <div class="pull-right">
+                      <a href="/public/login" class="btn btn-info btn-flat">Sign out</a>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+              <!-- Control Sidebar Toggle Button -->
+              
+            </ul>
+          </div>
+        </nav>
+      </header>		
+
+		<div class="row ">
+			<div class="col-lg-2" style="color: #b8c7ce;">
+				<nav class="navbar navbar-inverse" style="background:#394a59;">
+			<div class="user-panel">
+
+	            <div class="pull-left image">
+	            	<%= link_to image_tag("user.png", :border=>0,:width=>30, :class => 'img-circle'), :action => 'view', :controller => 'admin'%>
+	          	
+	            </div>
+	            <div class="pull-left info">
+              		<p>Sharanjit Kaur</p>
+              		<a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+            	</div>
+          </div>
+
+          <div class="col-lg-12 "><h4>MAIN NAVIGATION</h4></div>
+				<div class="row" >	
+
+					<ul class="nav navbar-nav" id="menu">
+					
+	 				<% if session[:is_admin] %>
+                        
+					<li class="col-lg-12  menu_container"><h4><i class="fa fa-users">Users<span class="fa fa-angle-double-down"style="float: right;margin-right: -100px;"></i></span></h4>
+						<ul class="main_menu" id="ulli">
+							<!-- fa fa-spinner fa-pulse -->
+							<li><i class="fa fa-circle fa-pulse"></i><a href="/user/user">New User</a></li>
+							<li><i class="fa fa-eye fa-pulse"></i><a href="/user/view">Show</a></li>
+						</ul>
+					</li>					 
+
+					<li class="col-lg-12 menu_container"><h4><i class="fa fa-book">User Detail<span class="fa fa-angle-double-down"style="float: right;margin-right: -60px;"></i></span></h4>
+						<ul class="main_menu" id="ulli">
+							<li><i class="fa fa-circle fa-pulse"></i><a href="/user_detail/user_detail">New User</a></li>
+							<li><i class="fa fa-eye fa-pulse"></i><a href="/user_detail/view">Show</a></li>
+						</ul>
+					</li>
+					<li class="col-lg-12 menu_container"><h4><i class="fa fa-phone">Blog Comment<span class="fa fa-angle-double-down"style="float: right;margin-right: -35px;"></i></span></h4>
+						<ul class="main_menu" id="ulli">
+							<li><i class="fa fa-circle fa-pulse"></i><a href="/blogcomment/blogcomment">New Contact</a></li>
+							<li><i class="fa fa-eye fa-pulse"></i><a href="/blogcomment/view">Show</a></li>
+						</ul>
+					</li>
+					<li class="col-lg-12 "><h4><i class="fa fa-pencil fa-fw"><%= link_to "Feedback",'/feedback/feedback' %></i></h4></li>
+
+			   <% end %>
+					<li class="col-lg-12 menu_container"><h4><i class="fa fa-book">Project Name<span class="fa fa-angle-double-down"style="float: right;margin-right: -48px;"></i></span></h4>
+						<ul class="main_menu" id="ulli">
+							<li><i class="fa fa-circle fa-pulse"></i><a href="/proname/proname">New User</a></li>
+							<li><i class="fa fa-eye fa-pulse"></i><a href="/proname/view">Show</a></li>
+						</ul>
+					</li>
+					<li class="col-lg-12 menu_container"><h4><i class="fa fa-link">Menu<span class="fa fa-angle-double-down"style="float: right;margin-right: -100px;"></i></span></h4>
+						<ul class="main_menu" id="ulli">
+							<li><i class="fa fa-circle fa-pulse"></i><a href="/menu/menu">New Menu</a></li>
+							<li><i class="fa fa-eye fa-pulse"></i><a href="/menu/view">Show</a></li>
+						</ul></li>
+					<li class="col-lg-12 menu_container"><h4><i class="fa fa-server">Sub Menu<span class="fa fa-angle-double-down"style="float: right;margin-right: -66px;"></i></span></h4>
+						<ul class="main_menu" id="ulli">
+							<li><i class="fa fa-circle fa-pulse"></i><a href="/submenu/submenu">New Sub Menu</a></li>
+							<li><i class="fa fa-eye fa-pulse"></i><a href="/submenu/view">Show</a></li>
+						</ul>
+					</li>
+					<li class="col-lg-12 menu_container"><h4><i class="fa fa-file">Pages<span class="fa fa-angle-double-down"style="float: right;margin-right: -100px;"></i></span></h4>
+						<ul class="main_menu" id="ulli">
+							<li><i class="fa fa-circle fa-pulse"></i><a href="/page/page">New Page</a></li>
+							<li><i class="fa fa-eye fa-pulse"></i><a href="/page/view">Show</a></li>
+						</ul>
+					</li>
+					<li class="col-lg-12 menu_container"><h4><i class="fa fa-sliders">Slider<span class="fa fa-angle-double-down"style="float: right;margin-right: -100px;"></i></span></h4>
+						<ul class="main_menu" id="ulli">
+							<li><i class="fa fa-circle fa-pulse"></i><a href="/slider/slider">New Slider</a></li>
+							<li><i class="fa fa-eye fa-pulse"></i><a href="/slider/view">Show</a></li>
+						</ul>
+					</li>
+					<li class="col-lg-12 menu_container"><h4><i class="fa fa-file-image-o">Banner<span class="fa fa-angle-double-down"style="float: right;margin-right: -92px;"></i></span></h4>
+						<ul class="main_menu" id="ulli">
+							<li><i class="fa fa-circle fa-pulse"></i><a href="/banner/banner">New Banner</a></li>
+							<li><i class="fa fa-eye fa-pulse"></i><a href="/banner/view">Show</a></li>
+						</ul>
+					</li>
+					<li class="col-lg-12 menu_container"><h4><i class="fa fa-camera-retro">Background<span class="fa fa-angle-double-down"style="float: right;margin-right: -53px;"></i></span></h4>
+						<ul class="main_menu" id="ulli">
+							<li><i class="fa fa-circle fa-pulse"></i><a href="/background/background">New Background</a></li>
+							<li><i class="fa fa-eye fa-pulse"></i><a href="/background/view">Show</a></li>
+						</ul>
+					</li>
+					<li class="col-lg-12 menu_container"><h4><i class="fa fa-phone">Blog<span class="fa fa-angle-double-down"style="float: right;margin-right: -109px;"></i></span></h4>
+						<ul class="main_menu" id="ulli">
+							<li><i class="fa fa-circle fa-pulse"></i><a href="/blog/blog">New Post</a></li>
+							<li><i class="fa fa-eye fa-pulse"></i><a href="/blog/view">Show</a></li>
+						</ul>
+					</li>
+					
+               		
+				</ul>
+  	
+			</div>
+		</div>
+	
+		<div class="col-lg-10">
+		<div class="row">
+				<div class="col-lg-12">
+					<h3 class="page-header"><i class="fa fa-dashboard"></i> <%= @page_title || "Dashboard" %></h3>
+					<ol class="breadcrumb">
+						<li><i class="fa fa-home"></i><a href="/admin/user">Home</a></li>
+						<li><i class="fa fa-laptop"></i><%= @page_title || "Dashboard" %></li>						  	
+					</ol>
+				</div>
+			</div>
+
+			
+				<div class="row">
+					<!-- <div class="col-lg-12">
+						<div class="col-lg-6 col-lg-offset-3 name">
+							<h1>Admin Panel</h1>
+						</div>
+					</div> -->
+					<div class="col-lg-12" id="main_content">
+						<div class="col-lg-6 col-lg-offset-2">
+							<%= yield %>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<footer style="height:50px;background:#3c8dbc;color:#fff;text-align:center;margin-top: 34px;">
+
+            <div class="row">
+                <div class="col-lg-12">           
+                    <p>Copyright &copy; Your Freeze CMS 2016</p>
+                </div>
+            </div>
+        </footer>
+	<script type="text/javascript">$(document).ready(function() {
+    if ($('textarea').length > 0) {
+        var data = $('textarea');
+        $.each(data, function(i) {
+            CKEDITOR.replace(data[i].id);
+        });
+    }
+});</script>
+</body>
+</html>

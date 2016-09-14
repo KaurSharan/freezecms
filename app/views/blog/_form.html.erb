@@ -1,0 +1,25 @@
+<div class="row">
+			<div class="col-lg-6">
+					Select User:-
+				</div>
+				<div class="col-lg-6">
+					<%= select("blog", "user_id", @users.collect {|u| [ u.email, u.id ] }, { include_blank: true })%>
+					
+				</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-6">
+					Enter Post Title:-
+				</div>
+				<div class="col-lg-6">
+					<%= f.text_field('title',:class=>'form-control') %>
+				</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-6">
+					Enter Post Detail:-
+				</div>
+				<div class="col-lg-12">
+					<%= f.cktext_area :detail, :class => 'ckeditor' %>
+				</div>
+		</div>

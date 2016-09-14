@@ -1,0 +1,17 @@
+<table class="table table-bordered">
+	<thead>
+			<tr>
+				<td>Id</td>
+				<td>User</td>
+				<td>Project Name</td>
+			</tr>
+	</thead>
+			<tr class="danger">
+				<td><%= @us.id %></td>
+				<td><%= @us.user.email %></td>
+				<td><%= @us.name %></td>
+			</tr>
+			<%= button_to('Back to view page', :action=>'view', :class => 'btn btn-primary')  %>
+				
+
+</table>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Create a Beautiful Password Strength Indicator with CSS3 | Tutorialzine Demo</title>
+        
+        <!-- The stylesheet -->
+        <%= stylesheet_link_tag 'meter',media: 'all' %>
+        <%= javascript_include_tag 'jquery','jquery.complexify','script' %>
+        <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+          <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <script src="http://cdn.tutorialzine.com/misc/adPacks/v1.js" async></script>
+        
+    </head>
+    
+    <body>
+
+        <div id="main">
+          
+          <h1> Admin Login </h1>
+          
+          <%= form_for :user , :url=>{:action=>'authenticate'} do |f| %> 
+            <div class="row email">
+                 <%= f.text_field('email',:class=>'form-control',:placeholder=>'Email',:required=>true) %>
+            </div>
+            
+            <div class="row pass">
+                <%= f.password_field('password',:class=>'form-control',:placeholder=>'Password',:required=>true) %>
+              
+            </div><br><br>
+            <!-- The rotating arrow -->
+            <div class="arrowCap"></div>
+            <div class="arrow"></div>
+            
+            <p class="meterText">Password Meter</p>
+            <%= submit_tag('Log In',:class=>'btn btn-primary col-lg-offset-2') %>
+            
+            
+          <% end %>
+          
+        </div>
+         
+    </body>
+</html>

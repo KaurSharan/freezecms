@@ -1,0 +1,17 @@
+<div class="row">
+			<div class="col-lg-6">
+					Select Blog:-
+				</div>
+				<div class="col-lg-6">
+					<%= select("blogcomment", "blog_id", @blogs.collect {|b| [ b.title, b.id ] }, { include_blank: true })%>
+					
+				</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-6">
+					Enter Comment:-
+				</div>
+				<div class="col-lg-6">
+					<%= f.text_field('comment',:class=>'form-control') %>
+				</div>
+		</div>

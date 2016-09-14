@@ -1,0 +1,33 @@
+<div class="row">
+			<div class="col-lg-6">
+					Enter Menu Id:-
+				</div>
+				<div class="col-lg-6">
+					<%= select("submenu", "menu_id", @menu.collect {|m| [ m.name, m.id ] }, { include_blank: true })%>
+					
+				</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-6">
+					Enter Name of Sub Menu:-
+				</div>
+				<div class="col-lg-6">
+					<%= f.text_field('name',:class=>'form-control') %>
+				</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-6">
+					Enter Link:-
+				</div>
+				<div class="col-lg-6">
+					<%= f.text_field('link',:class=>'form-control') %>
+				</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-6">
+					Enter Position:-
+				</div>
+				<div class="col-lg-6">
+					<%= f.text_field('position',:class=>'form-control') %>
+				</div>
+		</div>
