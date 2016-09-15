@@ -36,8 +36,6 @@ gem 'coffee-script-source', '1.8.0'
 
 # group :assets do
   gem 'sass-rails'
-  gem 'coffee-rails'
-
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
   #gem 'therubyracer'
@@ -61,10 +59,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 group :test, :production do
   gem 'pg'
-end
-
-group :development do
-  gem 'sqlite3'
 end
 
 gem 'rails_12factor', group: :production
