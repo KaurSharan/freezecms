@@ -5,7 +5,7 @@ gem 'rails', '4.2.5.1'
 # Use mysql as the database for Active Record
 gem 'mysql2', '>= 0.3.13', '< 0.5'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+# gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -43,8 +43,9 @@ gem 'coffee-script-source', '1.8.0'
   #gem 'therubyracer'
   #gem 'less-rails'
   #gem 'twitter-bootstrap-rails'
-  gem 'uglifier', '>= 1.0.3'
 # end
+
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
