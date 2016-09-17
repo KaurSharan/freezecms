@@ -48,7 +48,9 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
+   adapter: postgresql
+  encoding: utf8
   database: rorcms_production
+  pool: 5
   username: rorcms
   password: <%= ENV['RORCMS_DATABASE_PASSWORD'] %>

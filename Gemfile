@@ -7,6 +7,7 @@ ruby '2.2.4'
 
 group :production do
   gem 'pg'
+  gem 'rails_12factor'
 end
 
 # Use mysql as the database for Active Record
@@ -65,6 +66,3 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
-
-gem 'rails_12factor', group: :production
