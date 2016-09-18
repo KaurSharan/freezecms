@@ -20,16 +20,16 @@ class AdminController < ApplicationController
     @users=User.all  
     if session[:id]
       @se=session[:id]
-    @user_detail = UserDetail.find(@se) 
+    @userdetail = UserDetail.find(@se) 
   else
     redirect_to :action=>"edit"
   end
     def update
       dp
       @se=session[:id]
-    @user_detail=UserDetail.find(@se)
-    if @user_detail.valid?
-      @user_detail.update_attributes(user_params)
+    @userdetail=UserDetail.find(@se)
+    if @userdetail.valid?
+      @userdetail.update_attributes(user_params)
       redirect_to :action=> 'show'
     else
       @object=@us.errors.full_messages
@@ -39,7 +39,7 @@ class AdminController < ApplicationController
   end
   end
   def user_params
-   params.require(:user_detail).permit(:user_id,:first_name,:last_name,:profile_pic,:number)    
+   params.require(:userdetail).permit(:user_id,:first_name,:last_name,:profile_pic,:number)    
   end
   
 end

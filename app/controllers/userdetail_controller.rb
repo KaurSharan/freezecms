@@ -1,8 +1,8 @@
-class UserDetailController < ApplicationController
-layout 'main' 
+class UserdetailController < ApplicationController
+  layout 'main' 
   include ApplicationHelper
   before_filter :confirm_login
-  def user_detail
+  def userdetail
     dp
   	@users=User.all  
 
@@ -10,7 +10,7 @@ layout 'main'
   
   def view
     dp
-     @user_detail = UserDetail.all
+     @userdetail = UserDetail.all
     @page_title = "Users Detail"
 
   end
@@ -33,45 +33,45 @@ layout 'main'
   end
   def check
       dp  	  
-        photo = upload(params[:user_detail][:profile_pic])
+        photo = upload(params[:userdetail][:profile_pic])
         if photo
-          params[:user_detail][:profile_pic]=photo
+          params[:userdetail][:profile_pic]=photo
           @us = UserDetail.new(user_params)
           @users=User.all 
     if @us.valid?
       @us.save 
       @msg = "User Detail Saved Successfully"
-  	 render 'user_detail'
+  	 render 'userdetail'
   	else
   		@object=@us.errors.full_messages
-  	 render 'user_detail'
+  	 render 'userdetail'
     end
    else
-      render 'user_detail' 
+      render 'userdetail' 
   end
   end
   def edit
     dp
     @users=User.all  
     if params[:id]
-    @user_detail = UserDetail.find(params[:id]) 
+    @userdetail = UserDetail.find(params[:id]) 
   else
     redirect_to :action=>"view"
   end
     def update
       dp
-    @user_detail=UserDetail.find(params[:id])
-    if @user_detail.valid?
-      @user_detail.update_attributes(user_params)
+    @userdetail=UserDetail.find(params[:id])
+    if @userdetail.valid?
+      @userdetail.update_attributes(user_params)
       redirect_to :action=> 'view'
     else
       @object=@us.errors.full_messages
-     render 'user_detail'
+     render 'userdetail'
       
     end
   end
   end
   def user_params
-	 params.require(:user_detail).permit(:user_id,:first_name,:last_name,:profile_pic,:number)  	
+	 params.require(:userdetail).permit(:user_id,:first_name,:last_name,:profile_pic,:number)  	
   end
 end

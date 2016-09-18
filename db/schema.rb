@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160515124419) do
+ActiveRecord::Schema.define(version: 20160918140933) do
 
   create_table "backgrounds", force: :cascade do |t|
     t.integer  "page_id",    limit: 4
@@ -132,7 +132,6 @@ ActiveRecord::Schema.define(version: 20160515124419) do
     t.string   "first_name",  limit: 25
     t.string   "last_name",   limit: 25
     t.string   "profile_pic", limit: 25
-    t.string   "email",       limit: 40
     t.string   "number",      limit: 25
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
@@ -140,6 +139,20 @@ ActiveRecord::Schema.define(version: 20160515124419) do
 
   add_index "user_details", ["first_name"], name: "index_User_Details_on_first_name", using: :btree
   add_index "user_details", ["user_id"], name: "index_User_Details_on_user_id", using: :btree
+
+  create_table "userdetails", force: :cascade do |t|
+    t.integer  "user_id",     limit: 4
+    t.string   "first_name",  limit: 25
+    t.string   "last_name",   limit: 25
+    t.string   "profile_pic", limit: 25
+    t.string   "email",       limit: 40
+    t.string   "number",      limit: 25
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "userdetails", ["first_name"], name: "index_UserDetails_on_first_name", using: :btree
+  add_index "userdetails", ["user_id"], name: "index_UserDetails_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",      limit: 40

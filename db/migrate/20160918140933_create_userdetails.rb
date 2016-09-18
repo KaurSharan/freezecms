@@ -1,6 +1,6 @@
-class CreateUserDetails < ActiveRecord::Migration
+class CreateUserdetails < ActiveRecord::Migration
   def change
-    create_table :user_details do |t|
+    create_table :userdetails do |t|
     	t.integer "user_id"
     	t.string "first_name",:limit=>25
     	t.string "last_name",:limit=>25
@@ -9,7 +9,7 @@ class CreateUserDetails < ActiveRecord::Migration
     	t.string "number",:limit=>25
       t.timestamps null: false
     end
-    add_index("User_Details","user_id")
-    add_index("User_Details","first_name")
+    add_index("UserDetails","user_id")
+    add_index("UserDetails","first_name")
   end
 end

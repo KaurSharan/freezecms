@@ -1,5 +1,5 @@
-<%= form_for :user_detail , :url=>{:action=>'update'} do |f| %>
-<input type="hidden" value="<%= @user_detail.id %>" name="id">
+<%= form_for :userdetail , :url=>{:action=>'update'} do |f| %>
+<input type="hidden" value="<%= @userdetail.id %>" name="id">
 <div class="row">
 	<div class="col-lg-12">
 		
@@ -10,7 +10,7 @@
 					Enter User Email:-
 				</div>
 				<div class="col-lg-6">
-					<%= select("user_detail", "user_id", @users.collect {|ud| [ud.email, ud.id ] }, { include_blank: true })%>
+					<%= select("userdetail", "user_id", @users.collect {|ud| [ud.email, ud.id ] }, { include_blank: true })%>
 					
 				</div>
 		</div>

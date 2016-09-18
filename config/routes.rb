@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'userdetail/userdetail'
+
   get 'select/select'
 
   get 'theme3/page3'
