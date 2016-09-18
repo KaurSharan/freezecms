@@ -9,7 +9,5 @@ class CreateUserdetails < ActiveRecord::Migration
     	t.string "number",:limit=>25
       t.timestamps null: false
     end
-    add_index("UserDetails","user_id")
-    add_index("UserDetails","first_name")
   end
 end

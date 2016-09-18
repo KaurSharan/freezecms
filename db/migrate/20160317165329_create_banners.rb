@@ -6,6 +6,5 @@ class CreateBanners < ActiveRecord::Migration
     	t.string "detail"
       t.timestamps null: false
     end
-    add_index("Banners","page_id")
   end
 end

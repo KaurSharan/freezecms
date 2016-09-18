@@ -7,6 +7,5 @@ class CreateMenus < ActiveRecord::Migration
     	t.integer "position"
       t.timestamps null: false
     end
-    add_index("Menus","name")
   end
 end

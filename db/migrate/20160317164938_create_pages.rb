@@ -7,7 +7,5 @@ class CreatePages < ActiveRecord::Migration
     	t.string "description"
       t.timestamps null: false
     end
-    add_index("Pages","submenu_id")
-    add_index("Pages","banner_id")
   end
 end

@@ -5,6 +5,5 @@ class CreateBackgrounds < ActiveRecord::Migration
     	t.string "photo",:limit=>25
       t.timestamps null: false
     end
-    add_index("Backgrounds","page_id")
   end
 end

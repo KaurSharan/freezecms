@@ -5,6 +5,5 @@ class CreateSliders < ActiveRecord::Migration
     	t.string "pic",:limit=>25
       t.timestamps null: false
     end
-    add_index("Sliders","page_id")
   end
 end
