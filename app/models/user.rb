@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-	has_one :UserDetail
+	has_one :Userdetail
 	has_one :proname
 	has_many :blog
  

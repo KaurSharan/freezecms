@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
   def dp
        if session[:email]
       @uid= session[:id]
-      @detail=UserDetail.find_by_user_id(@uid)
+      @detail=Userdetail.find_by_user_id(@uid)
     else
       redirect_to :controller=>'public',:action=>'login'
       end

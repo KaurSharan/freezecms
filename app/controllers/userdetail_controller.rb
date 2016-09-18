@@ -10,21 +10,21 @@ class UserdetailController < ApplicationController
   
   def view
     dp
-     @userdetail = UserDetail.all
+     @userdetail = Userdetail.all
     @page_title = "Users Detail"
 
   end
   def show
     dp
     @id = params[:id]
-    @us = UserDetail.find_by_id(@id)
+    @us = Userdetail.find_by_id(@id)
     # @prid=session[:id]
-    # @profile = UserDetail.find_by_id(@prid)
+    # @profile = Userdetail.find_by_id(@prid)
   end
   def delete
     dp
     @id = params[:id]
-    @us = UserDetail.find_by_id(@id)
+    @us = Userdetail.find_by_id(@id)
     if @us.destroy
       redirect_to :action=>'view'
     else
@@ -36,7 +36,7 @@ class UserdetailController < ApplicationController
         photo = upload(params[:userdetail][:profile_pic])
         if photo
           params[:userdetail][:profile_pic]=photo
-          @us = UserDetail.new(user_params)
+          @us = Userdetail.new(user_params)
           @users=User.all 
     if @us.valid?
       @us.save 
@@ -54,13 +54,13 @@ class UserdetailController < ApplicationController
     dp
     @users=User.all  
     if params[:id]
-    @userdetail = UserDetail.find(params[:id]) 
+    @userdetail = Userdetail.find(params[:id]) 
   else
     redirect_to :action=>"view"
   end
     def update
       dp
-    @userdetail=UserDetail.find(params[:id])
+    @userdetail=Userdetail.find(params[:id])
     if @userdetail.valid?
       @userdetail.update_attributes(user_params)
       redirect_to :action=> 'view'

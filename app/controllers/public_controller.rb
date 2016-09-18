@@ -4,7 +4,7 @@ layout 'front'
   def view
     if session[:email]
       @uid= session[:id]
-      @detail=UserDetail.find_by_user_id(@uid)
+      @detail=Userdetail.find_by_user_id(@uid)
       
     end
   end
@@ -47,7 +47,7 @@ layout 'front'
         photo = upload(params[:det][:profile_pic])
         if photo
           params[:det][:profile_pic]=photo
-          @us = UserDetail.new(detail_params)
+          @us = Userdetail.new(detail_params)
    
       @us.valid?
       if @us.save
@@ -85,7 +85,7 @@ layout 'front'
   	password = params[:user][:password]
   	@user = User.authenticate_user(email,password)
 	if @user
-		session[:first_name] = @user.UserDetail.first_name
+		session[:first_name] = @user.Userdetail.first_name
 		session[:email] = @user.email
 		session[:id] = @user.id
     session[:is_admin] = @user.is_admin

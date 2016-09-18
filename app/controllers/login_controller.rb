@@ -7,7 +7,7 @@ class LoginController < ApplicationController
   	password = params[:user][:password]
   	@user = User.authenticate_user(email,password)
 	if @user
-		session[:first_name] = @user.UserDetail  ? @user.UserDetail.first_name : " ";
+		session[:first_name] = @user.Userdetail  ? @user.Userdetail.first_name : " ";
 		session[:email] = @user.email
 		session[:id] = @user.id
 		if @user.is_admin 
