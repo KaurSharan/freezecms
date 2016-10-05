@@ -21,9 +21,46 @@ module Rorcms
     # config.i18n.default_locale = :de
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
-  config.assets.initialize_on_precompile = true
     config.active_record.raise_in_transactional_callbacks = true
   config.autoload_paths = %W(#{config.root}/app/models/ckeditor)
+  config.assets.precompile += %w( style.css )
+config.assets.precompile += %w( code.js )
+config.assets.precompile += %w( jquery.js )
+config.assets.precompile += %w( ckeditor.js )
+config.assets.precompile += %w( jquery.complexify.js )
+config.assets.precompile += %w( script.js )
+config.assets.precompile += %w( meter.css )
+config.assets.precompile += %w( business-casual.css )
+
+
+config.assets.precompile += %w( bootstrap.css )
+config.assets.precompile += %w( animate.css )
+config.assets.precompile += %w( font-awesome.min.css )
+config.assets.precompile += %w( slick.css )
+config.assets.precompile += %w( freeze.css )
+config.assets.precompile += %w( settings.css )
+config.assets.precompile += %w( jquery-1.11.1.min.js )
+config.assets.precompile += %w( bootstrap.min.js )
+config.assets.precompile += %w( slick.min.js )
+config.assets.precompile += %w( placeholdem.min.js )
+config.assets.precompile += %w( waypoints.min.js )
+config.assets.precompile += %w( scripts.js )
+config.assets.precompile += %w( ck/ckeditor.js )
+config.assets.precompile += %w( rs-plugin/js/jquery.themepunch.plugins.min.js )
+config.assets.precompile += %w( rs-plugin/js/jquery.themepunch.revolution.min.js )
+
+config.assets.precompile += %w( bootstrap.min.css )
+config.assets.precompile += %w( modern-business.css )
+config.assets.precompile += %w( bootstrap.js )
+config.assets.precompile += %w( contact_me.js )
+config.assets.precompile += %w( jqBootstrapValidation.js )
+
+config.assets.precompile += %w( skel-noscript.css )
+config.assets.precompile += %w( style-desktop.css )
+config.assets.precompile += %w( style3.css )
+config.assets.precompile += %w( init.js )
+config.assets.precompile += %w( skel-panels.js )
+config.assets.precompile += %w( skel.min.js )
 
   end
 end
