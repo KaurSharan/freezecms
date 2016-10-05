@@ -1,7 +1,6 @@
 <table class="table table-hover table-bordered">
     <thead>
       <tr>
-        <th>S.no</th>
         <th>Email</th>
         <th>Show</th>
         <th>Edit</th>
@@ -11,12 +10,19 @@
     <tbody>
       <% @users.each do |u| %>
       <tr>
-          <td><%= u.id %></td>
+          
         <td><%= u.email %></td>
         <td><%= link_to(image_tag("show.png", :border=>0),{:action=>'show',:id => u.id})%></td></td>
-        <td><%= link_to(image_tag("edit.gif", :border=>0),{:action => 'edit',:id => u.id})%></td></td>
-        <td><%= link_to(image_tag("delete.gif", :border=>0),{:action => 'delete',:id => u.id})%></td>
+        <% if u.is_admin == true %>
+          <td>Admin</td>
+          <td>Admin</td>
+        <% else %>
+          <td><%= link_to(image_tag("edit.gif", :border=>0),{:action => 'edit',:id => u.id})%></td></td>
+          <td><%= link_to(image_tag("delete.gif", :border=>0),{:action => 'delete',:id => u.id})%></td>
+        <% end %>
       </tr>
       <% end %>
     </tbody>
   </table>
+  <%= paginate @users %>
+  <%= page_entries_info @users %>

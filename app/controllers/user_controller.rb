@@ -7,7 +7,7 @@ class UserController < ApplicationController
   end
     def view
       dp
-     @users = User.all
+     @users = User.order(email: :desc).page params[:page]
     @page_title = "Users"
   end
   def show

@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
 	has_one :Userdetail
 	has_one :proname
 	has_many :blog
+	paginates_per 5
  
 	validates_presence_of :email, :password
 	# validates_email_realness_of :email
